@@ -1,6 +1,6 @@
 @font-face {
-    font-family: Lato;
-    src: url(Lato/Lato-Hairline.ttf);
+    font-family: 'Open Sans', sans-serif;
+    src: url(Open_Sans/OpenSans-Light.ttf);
 }
 
 html, body {
@@ -8,13 +8,20 @@ html, body {
     height: 100%;
     margin: 0;
     padding: 0;
-    font-family: 'Lato', sans-serif;
+    font-family: 'Open Sans', sans-serif;
 }
 
+
 body {
-    background-color: #111;
+    background: #0D0A24;
     color: #fff;
     position: relative;
+    overflow: hidden;
+}
+
+#particles-js {
+    height: 100%;
+    width: 100%;
 }
 
 
@@ -38,6 +45,17 @@ body {
     border: none;
     overflow: visible;
     resize: none;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 300;
+    line-height: 2.0;
+}
+
+::selection {
+    background: rgba(255,255,255,0.99);
+}
+
+::-moz-selection {
+    background: rgba(255,255,255,0.99);
 }
 
 textarea:focus, input:focus{

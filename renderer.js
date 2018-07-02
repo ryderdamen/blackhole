@@ -19,7 +19,7 @@ function recursivelyRandomizeCharacters(string, positionInString, originalLength
 
     // TODO: Preserve spaces
 
-    var randcharacters = '@#$%^&*{}~AaBbCcDdEeFfGgHhIiJjKkLlMmNnOoPpQqRrSsTtUuVvWwXxYyZz@#$%^&*!{}[]~'.split("")
+    var randcharacters = '@#$%^&*{}~AaBbCcDdEeFfGgHhIiJjKkLlMmNnOoPpQqRrSsTtUuVvWwXxYyZz@#$%^&*!{}[]~@#$%^&*!{}[]~'.split("")
     let randomNumber = Math.floor(Math.random() * randcharacters.length) 
     var splitSentence = string.split("")
 
@@ -61,3 +61,9 @@ function deleteEverything() {
     funDelete()
     // document.getElementById('main-input').value = ""
 }
+
+
+/* particlesJS.load(@dom-id, @path-json, @callback (optional)); */
+particlesJS.load('particles-js', 'inc/particles.json', function() {
+    console.log('callback - particles.js config loaded');
+  });
