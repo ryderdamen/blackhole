@@ -1,25 +1,77 @@
 {
-  "name": "electron-quick-start",
-  "version": "1.0.0",
-  "description": "A minimal Electron application",
+  "name": "BlackHole",
+  "version": "1.0.1",
+  "description": "A simple journaling application that deletes everything you write.",
   "main": "main.js",
   "scripts": {
-    "start": "electron ."
+    "postinstall": "install-app-deps",
+    "start": "npm install && electron .",
+    "pack": "build --dir",
+    "dist": "build",
+    "release": "bash scripts/publish.sh"
   },
-  "repository": "https://github.com/electron/electron-quick-start",
+  "repository": "https://github.com/ryderdamen/blackhole",
   "keywords": [
-    "Electron",
-    "quick",
-    "start",
-    "tutorial",
-    "demo"
+    "Journaling",
+    "BlackHole"
   ],
-  "author": "GitHub",
-  "license": "CC0-1.0",
-  "devDependencies": {
-    "electron": "^1.8.4"
+  "author": "Ryder Damen <dev@ryderdamen.com>",
+  "license": "MIT",
+  "build": {
+    "appId": "com.ryderlabs.blackhole",
+    "dmg": {
+      "contents": [
+        {
+          "x": 100,
+          "y": 150
+        },
+        {
+          "x": 300,
+          "y": 150,
+          "type": "link",
+          "path": "/Applications"
+        }
+      ]
+    },
+    "linux": {
+      "target": [
+        "AppImage",
+        "deb"
+      ]
+    },
+    "win": {
+      "target": "NSIS",
+      "icon": "build/icon.ico"
+    },
+    "mac": {
+      "category": "public.app-category.productivity",
+      "target": [
+        "pkg",
+        "dmg",
+        "zip",
+        "mas"
+      ],
+      "entitlements": "build/entitlements.mac.plist",
+      "type": "distribution",
+      "icon": "build/icon.icns"
+    },
+    "mas": {
+      "entitlements": "build/entitlements.mas.plist",
+      "type": "distribution",
+      "category": "public.app-category.productivity",
+      "target": [
+        "pkg",
+        "dmg",
+        "zip",
+        "mas"
+      ]
+    }
   },
   "dependencies": {
     "electron-prompt": "^0.5.0"
+  },
+  "devDependencies": {
+    "electron": "^1.8.4",
+    "electron-builder": "^20.18.0"
   }
 }
